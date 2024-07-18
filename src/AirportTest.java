@@ -1,5 +1,6 @@
 import model.Plane;
 import service.PlaneService;
+import service.PlaneServiceImpl;
 
 import java.util.Scanner;
 
@@ -7,13 +8,13 @@ public class AirportTest {
     public static void main(String[] args) {
 
         boolean isActive = true;
-        Plane plane1 = new Plane("model1", "USA", 1980, 5600, true, 35_000, 20, 650, 25, 2_000_000);
-        Plane plane2 = new Plane("model2", "Russia", 1950, 7800, false, 80_000, 30, 500, 80, 1_500_000);
+        Plane plane1 = new Plane("model1", "USA", 1995, 5600, true, 85_000, 30, 650, 25, 2_000_000);
+        Plane plane2 = new Plane("model2", "Russia", 7800, false, 500, 80, 1_500_000);
         Plane plane3 = new Plane("model3", "China", 2005, 3000, true, 70_000, 35, 450, 70, 1_800_000);
         Plane[] planes = {plane1, plane2, plane3};
 
         Scanner scanner = new Scanner(System.in);
-        PlaneService service = new PlaneService();
+        PlaneServiceImpl service = new PlaneServiceImpl();
 
 
         while (isActive) {
@@ -26,7 +27,7 @@ public class AirportTest {
             System.out.println("7: print all military planes which were in air more then 100 hours");
             System.out.println("8: return the plane with minimal weight (if there are some of them return last one)");
             System.out.println("9: return the plane with minimal cost from all military planes");
-            System.out.println("10: print planes in ascending  form order by year");
+            System.out.println("10: print planes in ascending form order by year");
             System.out.println("11: Exit");
 
             System.out.print("Enter your choice: ");
@@ -41,7 +42,7 @@ public class AirportTest {
                     break;
                 case 3:
                     Plane newerPlane = service.task3(plane1, plane2);
-                    newerPlane.printInfo();
+                    service.task1(newerPlane);
                     break;
                 case 4:
                     String model = service.task4(plane1, plane2);
@@ -58,11 +59,11 @@ public class AirportTest {
                     break;
                 case 8:
                     Plane minWeightPlane = service.task8(planes);
-                    minWeightPlane.printInfo();
+                    service.task1(minWeightPlane);
                     break;
                 case 9:
                     Plane minCostMilitary = service.task9(planes);
-                    minCostMilitary.printInfo();
+                    service.task1(minCostMilitary);
                     break;
                 case 10:
                     service.task10(planes);

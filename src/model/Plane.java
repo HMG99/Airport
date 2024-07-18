@@ -12,15 +12,25 @@ public class Plane {
     private int seats;
     private double cost;
 
+    public Plane(String model, String country, int hours, boolean isMilitary, int topSpeed, int seats, double cost) {
+        this.model = model;
+        this.country = country;
+        this.hours = hours;
+        this.isMilitary = isMilitary;
+        this.topSpeed = topSpeed;
+        this.seats = seats;
+        this.cost = cost;
+
+    }
 
     public Plane(String model, String country, int year, int hours, boolean isMilitary, int weight, int wingspan, int topSpeed, int seats, double cost) {
         this.model = model;
         this.country = country;
-        this.year = year;
+        setYear(year);
         this.hours = hours;
         this.isMilitary = isMilitary;
-        this.weight = weight;
-        this.wingspan = wingspan;
+        setWeight(weight);
+        setWingspan(wingspan);
         this.topSpeed = topSpeed;
         this.seats = seats;
         this.cost = cost;
@@ -134,17 +144,17 @@ public class Plane {
         }
     }
 
-    public void printInfo() {
-        System.out.println("Model: " + model);
-        System.out.println("Country: " + country);
-        System.out.println("Year: " + year);
-        System.out.println("Hours: " + hours);
-        System.out.println("Military: " + isMilitary);
-        System.out.println("Weight: " + weight);
-        System.out.println("Wingspan: " + wingspan);
-        System.out.println("TopSpeed: " + topSpeed);
-        System.out.println("Seats: " + seats);
-        System.out.println("Cost: " + cost);
-    }
+//    public void printInfo() {
+//        System.out.println("Model: " + model);
+//        System.out.println("Country: " + country);
+//        System.out.println("Year: " + year);
+//        System.out.println("Hours: " + hours);
+//        System.out.println("Military: " + isMilitary);
+//        System.out.println("Weight: " + weight);
+//        System.out.println("Wingspan: " + wingspan);
+//        System.out.println("TopSpeed: " + topSpeed);
+//        System.out.println("Seats: " + seats);
+//        System.out.println("Cost: " + cost);
+//    }
 
 }
